@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/live-style.css">
+    <meta charset="UTF-8"/>
+    <title>熊喵的小窝（建设中）</title>
+</head>
+<body>
+    <!-- 顶部标题栏 -->
+    <div class="top-bar">
+        <div class="top-bar-left" id="current-room-title">熊熊的直播间</div>
+        <div class="top-bar-right" id="username-box">
+        <!-- 用户名区域(鼠标悬停时菜单出现, 点击后可固定) -->
+        <div class="username-wrapper" id="username-wrapper">
+            <span id="username-display">熊喵</span>
+        </div>
+        <!-- 下拉菜单 -->
+        <ul class="user-menu" id="user-menu">
+            <li><a href="/reset-password">修改密码</a></li>
+            <li><a href="/logout">退出</a></li>
+        </ul>
+        </div>
+    </div>
+
+    <!-- 主体(左侧边栏 + 右侧内容) -->
+    <div class="main-container">
+        <!-- 左侧边栏 -->
+        <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="sidebar-title">直播间列表</span>
+            <button class="toggle-btn" id="sidebar-toggle">收起</button>
+        </div>
+        <div class="room-list" id="room-list">
+            <!-- JS 动态插入直播间项 -->
+        </div>
+        </div>
+
+        <!-- 右侧内容(视频 + 弹幕 + 评论等) -->
+        <div class="content">
+        <div id="video-container">
+          <video id="video" muted playsinline></video>
+          <div id="danmaku-container"></div>
+
+          <div class="custom-controls">
+            <!-- 第一行：进度条 + 时间显示(默认隐藏) -->
+            <div class="progress-row" id="progress-row">
+              <div class="time-display" id="time-display">00:00 / 00:00</div>
+              <div class="progress-bar" id="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+                <div class="progress-handle" id="progress-handle"></div>
+              </div>
+            </div>
+      
+            <!-- 第二行：按钮 -->
+            <div class="buttons-row" id="buttons-row">
+              <button class="btn-playpause" id="btn-playpause">播放</button>
+              
+              <div class="comment-section">
+                <div class="comment-input">
+                  <input type="text" id="comment-input" placeholder="输入评论...">
+                </div>
+                <button class="comment-send" id="btn-send">发送</button>
+              </div>
+      
+              <div class="volume-wrapper">
+                <button class="btn-mute" id="btn-mute">静音</button>
+                <input type="range" id="volume-range" min="0" max="1" step="0.01">
+              </div>
+      
+              <button class="btn-fullscreen" id="btn-fullscreen">全屏</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="comment-list"></div>
+        <audio id="msg-audio" src="msg.wav" preload="auto"></audio>
+        </div>
+    </div>
+
+    <script src="js/hls.js"></script>
+    <script src="js/live-layout.js"></script> 
+    <script src="js/live.js"></script>
+</body>
+</html>

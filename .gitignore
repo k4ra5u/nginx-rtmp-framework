@@ -1,0 +1,6 @@
+hls/*
+node_modules
+package.json
+package-lock.json
+login.db
+public/thumbs/*
